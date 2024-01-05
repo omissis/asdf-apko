@@ -68,24 +68,24 @@ install_version() {
 }
 
 get_platform() {
-  uname | tr '[:upper:]' '[:lower:]'
+	uname | tr '[:upper:]' '[:lower:]'
 }
 
 get_arch() {
-  local arch=""
+	local arch=""
 
-  case "$(uname -m)" in
-      x86_64|amd64) arch="amd64"; ;;
-      i686|i386) arch="386"; ;;
-      armv6l) arch="armv6"; ;;
-      armv7l) arch="armv7"; ;;
-      aarch64|arm64) arch="arm64"; ;;
-      ppc64le) arch="ppc64le"; ;;
-      *)
-        echo "Arch '$(uname -m)' not supported!" >&2
-        exit 1
-        ;;
-  esac
+	case "$(uname -m)" in
+		x86_64|amd64) arch="amd64"; ;;
+		i686|i386) arch="386"; ;;
+		armv6l) arch="armv6"; ;;
+		armv7l) arch="armv7"; ;;
+		aarch64|arm64) arch="arm64"; ;;
+		ppc64le) arch="ppc64le"; ;;
+		*)
+		echo "Arch '$(uname -m)' not supported!" >&2
+		exit 1
+		;;
+	esac
 
-  echo -n $arch
+	echo -n $arch
 }
